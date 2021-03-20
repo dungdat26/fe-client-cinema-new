@@ -23,18 +23,12 @@ class Menu extends Component {
         link: "/su-kien",
         title: "SỰ KIỆN",
       },
-      {
-        link: "/rap-gia-ve",
-        title: "RẠP/GIÁ VÉ",
-      },
+    
       {
         link: "/ho-tro",
         title: "HỖ TRỢ",
       },
-      {
-        link: "/thanh-vien",
-        title: "THÀNH VIÊN",
-      },
+   
     ],
   };
   render() {

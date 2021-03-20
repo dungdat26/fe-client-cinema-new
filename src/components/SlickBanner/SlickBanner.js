@@ -22,13 +22,13 @@ export default class AutoPlay extends Component {
       <div >
         <Slider {...settings}>
           <div>
-            <img src={banner4} style={{height: '455px'}} alt=""/>
+            <img src={banner4} style={{height: '455px', width: "100%"}} alt=""/>
           </div>
           <div>
-          <img src={banner5} style={{height: '455px'}} alt=""/>
+          <img src={banner5} style={{height: '455px', width: "100%"}} alt=""/>
           </div>
           <div>
-          <img src={banner6} style={{height: '455px'}} alt=""/>
+          <img src={banner6} style={{height: '455px', width: "100%"}} alt=""/>
           </div>
         </Slider>
       </div>

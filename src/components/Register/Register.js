@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Col, Container } from "react-bootstrap";
 import axios from "axios";
 import { Alert } from "@material-ui/lab";
+import { post } from "jquery";
 
 class Register extends Component {
   state = {
@@ -39,9 +40,7 @@ class Register extends Component {
 
   submitFormRegisterHandler = (e) => {
     e.preventDefault();
-
     // console.log(this.state);
-
     const userData = {
       email: this.state.email,
       password: this.state.pass,
@@ -58,15 +57,26 @@ class Register extends Component {
     axios
       .post("http://localhost:4000/signup", userData)
       .then((res) => {
-        // console.log(res.data);
+        //  console.log(res.data);
         const { name, email } = res.data;
+        const dataUser = {
+          email: this.state.email,
+          password: this.state.pass,
+        };
         this.setState({
           success: `Bạn đã đăng ký thành công ${name} dưới email ${email}`,
+        });
+        alert(`bạn đă đăng ký thành công chào mừng ${name}`);
+        axios.post("http://localhost:4000/login", dataUser).then((res) => {
+          // console.log(res.data);
+          const { name, email, token } = res.data;
+          // console.log(token);
+          localStorage.setItem("token", token);
+          this.props.loginSuccess(name);
         });
       })
       .catch((err) => {
         console.log(err);
-
         this.setState({ error: err.response.data.message });
       });
   };

@@ -11,9 +11,9 @@ export default class Profile extends Component {
     phone_number: "",
     date_of_birth: "",
     gender: "",
-    balance: "",
+
     email: "",
-    _id: "",
+
     isDone: false,
   };
   componentDidMount() {
@@ -37,9 +37,8 @@ export default class Profile extends Component {
     });
     console.log(event.target.value);
   };
-  
-  EditProfileHandler = (event) => {
 
+  EditProfileHandler = (event) => {
     const userdata = {
       name: this.state.name,
       email: this.state.email,
@@ -48,7 +47,6 @@ export default class Profile extends Component {
       gender: this.state.gender,
       balance: this.state.balance,
       _id: this.state._id,
-      
     };
 
     console.log(userdata);
@@ -70,7 +68,6 @@ export default class Profile extends Component {
   };
 
   render() {
-   
     return (
       <Container>
         <h1 style={{ margin: "0 0 20px 36%" }}>Profile Page</h1>
@@ -115,13 +112,7 @@ export default class Profile extends Component {
             value={this.state.gender}
             onChange={this.changeInputHandler}
           />
-          <TextField
-            id="balance"
-            name="balance"
-            label="số dư tài khoản"
-            variant="outlined"
-            value={this.state.balance}
-          />
+
           <Grid item xs={12} md={6} lg={5} spacing={3}>
             <Button
               variant="contained"

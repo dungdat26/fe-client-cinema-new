@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Container, Table, Col, Row, Button } from "react-bootstrap";
+import { Container, Table, Col, Row, Button,Form} from "react-bootstrap";
 import axios from "axios";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-
+import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
 import ItemCart from "./ItemCart";
 import "./FormCart.css";
 import cart from "../../assest/img/cart.jpg";
@@ -12,29 +13,42 @@ export default class FormCart extends Component {
   state = {
     cart: [],
     buyYet: false,
+    
+    
   };
 
   postPurchasedFilm = () => {
     // this.props.cart = [{_id:, name:}]
     //  -> [_id,...]
     const filmsList = this.props.cart.map((item) => item._id);
+    let totalPrice = 0;
+    this.props.cart.forEach((item) => {
+      totalPrice += item.price;
+    });
 
-    // console.log(filmsList);
-
+    console.log(filmsList);
     const token = localStorage.getItem("token");
+    this.setState({ error: null, success: null });
 
+  if(this.props.balance < totalPrice){
+    this.setState({ error: "số tiền của bạn không đủ để thực hiện giao dịch này " });
+  }
+  else {
     if (token) {
       axios
         .post(
           "http://localhost:4000/client-page/purchase",
-          { filmsList },
+          {filmsList},
           {
             headers: { Authorization: `Bearer ${token}` },
           }
         )
         .then((res) => {
-          // console.log(res);
-
+           
+           console.log(res);
+           this.setState({
+          success: `Bạn đã mua phim thành công  `,
+        });
           this.props.successBuyCart();
           this.props.updateBalance(res.data.newBalance);
         })
@@ -42,6 +56,9 @@ export default class FormCart extends Component {
           console.log(err);
         });
     }
+  }
+
+    
   };
 
   render() {
@@ -52,8 +69,18 @@ export default class FormCart extends Component {
       totalPrice += item.price;
     });
     let soDu = this.props.balance - totalPrice;
+    
     return (
+      
       <Container className="my-2">
+        <Form>
+        {this.state.error ? (
+            <Alert severity="error">{this.state.error}</Alert>
+          ) : null}
+
+          {this.state.success ? (
+            <Alert severity="success">{this.state.success}</Alert>
+          ) : null}
         <Row>
           <Col md={7}>
             {this.props.cart.map((item_phim) => {
@@ -116,6 +143,7 @@ export default class FormCart extends Component {
             )}
           </Col>
         </Row>
+        </Form>
       </Container>
     );
   }

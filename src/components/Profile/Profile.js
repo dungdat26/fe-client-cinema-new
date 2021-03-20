@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import axios from "axios";
-import {
-  TextField,
-  FormControl,
-  MenuItem,
-  Grid,
-  Button,
-} from "@material-ui/core/";
+import { TextField, FormControl, Grid, Button } from "@material-ui/core/";
 // import ItemPurchaseFilm from "../ItemPurchaseFilm/ItemPurchaseFilm";
 import ItemPurchaserFilm from "./ItemPurchaserFilm";
 import { Col, Row } from "react-bootstrap";
@@ -51,29 +45,22 @@ export default class Profile extends Component {
         <Row>
           <Col md={4}>
             <FormControl
-              // style={{ margin: "10px 0px 20px  250px", width: "50%" }}
+            // style={{ margin: "10px 0px 20px  250px", width: "50%" }}
             >
-              <TextField
-                className="mb-4 w-100"
-                id="name"
-                name="name"
-                label="họ và tên của user"
-                variant="outlined"
-                value={this.state.name}
-                
-                // onChange={this.changeInputHandler}
-              />
-              <TextField className='w-100'
-                id="gender"
-                name="gender"
-                label="giới tính"
-                variant="outlined"
-                value={this.state.gender}
-                // onChange={this.changeInputHandler}
-              />
+              <div>
+                <h3>Username : {this.state.name}</h3>
+              </div>
+              <div>
+                <h3>Balance : {this.state.balance}</h3>
+              </div>
 
-              <Link to={`/edit-trang-ca-nhan`}>
-                <Button variant="contained" size="small" color="secondary">
+              <Link to={`/edit-trang-ca-nhan`} style={{ marginTop: "20px" , width:"50px" }}>
+                <Button
+                  variant="contained"
+                  size="small"
+                  color="secondary"
+                 
+                >
                   Edit
                 </Button>
               </Link>

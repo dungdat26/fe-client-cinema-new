@@ -11,7 +11,7 @@ import Menu from "./components/Menu/Menu";
 import Footer from "./components/Footer/Footer";
 import DetailFilm from "./components/DetailFilm/DetailFilm";
 import Page404 from "./components/Page404/Page404";
-// import Test from "./components/test/Test";
+
 import TabBar from "./components/TabBar/TabBar";
 import FormCart from "./components/FormCart/FormCart";
 import Order from "./components/Order/Order";
@@ -133,6 +133,9 @@ export default class App extends Component {
                 user={this.state.user}
               />
             )}
+          />
+          <Route
+           path="/chi-tiet/:idProducer"
           />
           <Route exact path="/" component={HomePage} />
           <Route path="/review" component={Review} />

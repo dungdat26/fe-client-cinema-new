@@ -10,11 +10,15 @@ import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
-  root: {
-    margin: "1rem auto",
+   root: {
+    margin: "2rem auto",
+    marginLeft: 10,
+    width: 250,
+    minHeight: 350,
   },
   media: {
-    height: 140,
+    height: 350,
+    width: 250,
   },
   link: {
     textDecoration: "none",
@@ -27,9 +31,9 @@ export default function MediaCard(props) {
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
+        <CardMedia 
           className={classes.media}
-          image={props.urlImg}
+          image={props.urlImg} 
           title={props.EN_name}
         />
         <CardContent>
@@ -41,9 +45,9 @@ export default function MediaCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions style={{ marginTop:"10px"}}>
         {/* <Link to={`/edit-film/${props.id_phim}`} className={classes.link}> */}
-          <Button variant="contained" size="small" color="secondary">
+          <Button variant="contained" size="small" color="secondary" >
             Edit
           </Button>
         {/* </Link> */}

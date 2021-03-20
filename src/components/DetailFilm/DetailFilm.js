@@ -13,17 +13,17 @@ import {
   Modal,
 } from "react-bootstrap";
 import { Button as MButton } from "@material-ui/core";
-import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
+
 import SlowMotionVideoIcon from "@material-ui/icons/SlowMotionVideo";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import MovieIcon from "@material-ui/icons/Movie";
 
 // ?Giả vờ như import vào database
-import data from "../../assest/dummydata/data";
+
 import "./DetailFilm.css";
 
 import phim1 from "../../assest/img/sc.jpg";
-import phim2 from '../../assest/img/sc2.jpg';
+import phim2 from "../../assest/img/sc2.jpg";
 import CommentFilm from "../CommentFilm/CommentFilm";
 
 class DetailFilm extends Component {
@@ -31,6 +31,9 @@ class DetailFilm extends Component {
     dataPhim: null,
     show: false,
     open: false,
+    actorsData: null,
+    actor: [],
+    orderPhim: null,
   };
 
   handleShow = () => {
@@ -60,7 +63,35 @@ class DetailFilm extends Component {
         // console.log(dataPhim);
         // console.log(res.data.films);
 
+        // var duration = setInterval(function(){
         this.setState({ dataPhim: res.data.films });
+      })
+      // console.log(this.state.dataPhim);
+      // })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios
+
+      .get(
+        `http://localhost:4000/client-page//get-films-id_actor/${idPhim}`,
+        config
+      )
+      .then((res) => {
+        console.log(res.data);
+        const actorsData = res.data.actors;
+
+        console.log(typeof actorsData);
+        // console.log(typeof actorsData.keys(actorsData));
+        // this.setState({ actors: res.data.actors});
+        // console.log(this.state.actors)
+        // actorsData.map(function(actor,index) {
+        //  return actorsData.actor
+        // })
+
+        //  console.log(res.data.actors);
+
         // console.log(this.state.dataPhim);
       })
       .catch((err) => {
@@ -154,7 +185,8 @@ class DetailFilm extends Component {
                           Diễn viên:{" "}
                           <span>
                             {this.state.dataPhim.actors
-                              .map((actor) => actor.actorId.name_actor.trim())
+                              .map((actor) => actor.actorId.name_actor)
+
                               .join(", ")}
                           </span>
                         </li>
@@ -170,7 +202,8 @@ class DetailFilm extends Component {
                           Quốc gia: <span>{this.state.dataPhim.country}</span>
                         </li>
                         <li>
-                          Ngày: <span>{this.state.dataPhim.date}</span>
+                          Ngày:{" "}
+                          <span>{this.state.dataPhim.date.slice(0, 10)}</span>
                         </li>
                       </div>
                       <div>
@@ -190,15 +223,15 @@ class DetailFilm extends Component {
                               show={this.state.show}
                               onHide={this.handleClose}
                               animation={false}
+                              size="lg"
                             >
-                              <Modal.Body>
+                              <Modal.Body style={{ textAlign: "center" }}>
                                 <iframe
-                                  width="460"
-                                  height="315"
-                                  src="https://www.youtube.com/embed/uQWySyw8aC0"
-                                  frameborder="0"
+                                  width="720"
+                                  height="600"
+                                  src={this.state.dataPhim.urlFilm}
                                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                  allowfullscreen
+                                  allowFullScreen
                                 ></iframe>
                               </Modal.Body>
                             </Modal>
@@ -242,12 +275,20 @@ class DetailFilm extends Component {
                 </Col>
                 <Col md={4}>
                   <h3 className="border-bt">Phim Đang Chiếu</h3>
-                  <div className='mt-4'>
-                    <img src={phim1} alt="" style={{width: '396px', height: '264px'}} />
+                  <div className="mt-4">
+                    <img
+                      src={phim1}
+                      alt=""
+                      style={{ width: "396px", height: "264px" }}
+                    />
                     <h4>THE CON-HEARTIST</h4>
                   </div>
-                  <div className='mt-4'>
-                    <img src={phim2} alt="" style={{width: '396px', height: '264px'}} />
+                  <div className="mt-4">
+                    <img
+                      src={phim2}
+                      alt=""
+                      style={{ width: "396px", height: "264px" }}
+                    />
                     <h4>CAPTAIN SABERTOOTH AND THE MAGIC DIAMOND</h4>
                   </div>
                 </Col>
@@ -264,7 +305,7 @@ class DetailFilm extends Component {
           Quay lại trang trước
         </Button>
 
-        <CommentFilm />
+        <CommentFilm userSend={this.props.user} />
       </Container>
     );
   }

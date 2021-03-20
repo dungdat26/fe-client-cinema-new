@@ -40,7 +40,7 @@ export default class ButtonLogin extends Component {
                 <Login loginSuccess={this.props.loginSuccess} />
               </Tab>
               <Tab eventKey="register" title="Đăng ký">
-                <Register />
+                <Register loginSuccess={this.props.loginSuccess} />
               </Tab>
             </Tabs>
           </Modal.Body>
