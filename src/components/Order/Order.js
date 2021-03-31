@@ -45,11 +45,11 @@ export default class Order extends Component {
                           style={{
                             width: "80%",
                             height: "250px",
-                            margin: "10px 0px", 
+                            margin: "10px 0px",
                           }}
                         />
                       </Col>
-                      <Col md={8} className='mt-4'>
+                      <Col md={8} className="mt-4">
                         <h3>
                           Ngày mua:{" "}
                           {new Date(order.purchasedDate).toLocaleDateString(

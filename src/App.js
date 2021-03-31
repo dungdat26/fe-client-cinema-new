@@ -20,6 +20,7 @@ import AboutCinema from "./components/AboutCinema/AboutCinema";
 import Review from "./components/Review/Review";
 import EditProfile from './components/EditProfile/EditProfile';
 import Search from './components/Head/Search';
+import DetailNews from "./components/DetailNews/DetailNews";
 
 export default class App extends Component {
   state = {
@@ -134,8 +135,9 @@ export default class App extends Component {
               />
             )}
           />
-          <Route
-           path="/chi-tiet/:idProducer"
+         <Route
+            path="/news-detial/:id_news"
+            component={DetailNews}
           />
           <Route exact path="/" component={HomePage} />
           <Route path="/review" component={Review} />

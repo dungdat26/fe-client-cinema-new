@@ -46,11 +46,11 @@ export default function MediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions style={{ marginTop:"10px"}}>
-        {/* <Link to={`/edit-film/${props.id_phim}`} className={classes.link}> */}
+        <Link to={`/chi-tiet/${props.id_phim}`} className={classes.link}>
           <Button variant="contained" size="small" color="secondary" >
             Edit
           </Button>
-        {/* </Link> */}
+        </Link>
       </CardActions>
     </Card>
   );

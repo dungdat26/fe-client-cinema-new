@@ -1,7 +1,7 @@
 .title_review {
   display: flex;
   position: relative;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
 .title_review::after {
@@ -17,8 +17,10 @@
   width: 170px;
   height: 110px;
   margin-top: 5px;
+ 
 }
 
-.contai {
+.d-flex-m-auto-contai {
   height: 200px;
+  display: flex;
 }

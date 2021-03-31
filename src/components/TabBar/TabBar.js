@@ -78,7 +78,7 @@ function ControlledTabs() {
       </Tabs>
 
       <div style={{ marginLeft: "90%" }}>
-        <Button>Xem Them</Button>
+       
       </div>
     </Container>
   );

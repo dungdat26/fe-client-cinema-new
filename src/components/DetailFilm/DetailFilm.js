@@ -32,7 +32,6 @@ class DetailFilm extends Component {
     show: false,
     open: false,
     actorsData: null,
-    actor: [],
     orderPhim: null,
   };
 

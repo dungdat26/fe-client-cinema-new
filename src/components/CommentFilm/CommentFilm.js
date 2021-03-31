@@ -133,7 +133,7 @@ class CommentFilm extends Component {
               <div md={8} className="mx-3 my-4">
                 <h5>{comment.userId.name}</h5>
                 <p>{comment.content}</p>
-                <div>{comment._id}</div>
+               
                 <div style={{ fontSize: "11px" }}>
                   {moment(comment.commentDate).startOf("minute").fromNow()}
                 
