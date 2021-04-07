@@ -123,7 +123,7 @@ export default class App extends Component {
         <Menu />
         <Switch>
           <Route path="/mua-phim" component={TabBar} />
-          <Route path="/galaxy" component={AboutCinema} />
+          <Route path="/skylight" component={AboutCinema} />
           
           <Route
             path="/chi-tiet/:idPhim"

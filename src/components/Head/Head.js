@@ -7,7 +7,7 @@ import SlowMotionVideoIcon from "@material-ui/icons/SlowMotionVideo";
 
 
 import "./Head.css";
-import imglogo from "../../assest/img/logo.png";
+import imglogo from "../../assest/img/logo1.png";
 import MenuLogin from "../MenuLogin/MenuLogin";
 import ButtonLogin from "../Login/ButtonLogin";
 
@@ -47,6 +47,7 @@ export default class Head extends Component {
             className="ml-3"
             style={{ marginTop: "18px" }}
           />
+          
         </Link>
 
         <Form className="m-auto d-flex" onSubmit={this.submitSearchHandler}>

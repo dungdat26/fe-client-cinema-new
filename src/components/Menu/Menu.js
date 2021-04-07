@@ -8,8 +8,8 @@ class Menu extends Component {
   state = {
     main_menu: [
       {
-        link: "/galaxy",
-        title: "GALAXY",
+        link: "/skylight",
+        title: "SKYLIGHT",
       },
       {
         link: "/mua-phim",

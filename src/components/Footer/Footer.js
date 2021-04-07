@@ -78,7 +78,7 @@ class Footer extends Component {
                 ],
             },
             {
-                title: "KẾT NỐI GALAXY CINEMA",
+                title: "KẾT NỐI SKYLIGHT CINEMA",
                 lask: '|',
                 thong_tin: [
                     {

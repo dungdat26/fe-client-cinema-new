@@ -7,9 +7,9 @@ export default class AboutCinema extends Component {
   render() {
     return (
       <Container className='mb-4'>
-        <h5 className='about-cinema'>GALAXY CINEMA</h5>
+        <h5 className='about-cinema'>SKYLIGHT CINEMA</h5>
         <span style={{ fontSize: '14px', lineHeight: '35px' }}>
-          Galaxy Cinema là một trong những công ty tư nhân đầu tiên về điện ảnh
+          SkyLight Cinema là một trong những công ty tư nhân đầu tiên về điện ảnh
           được thành lập từ năm 2003, đã khẳng định thương hiệu là 1 trong 10
           địa điểm vui chơi giải trí được yêu thích nhất. Ngoài hệ thống rạp
           chiếu phim hiện đại, thu hút hàng triệu lượt người đến xem, Galaxy
