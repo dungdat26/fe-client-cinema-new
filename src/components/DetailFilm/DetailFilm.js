@@ -55,7 +55,7 @@ class DetailFilm extends Component {
 
     const { idPhim } = this.props.match.params;
     axios
-      .get(`http://localhost:4000/client-page/get-films-id/${idPhim}`, config)
+      .get(process.env.REACT_APP_BE_URL+`/client-page/get-films-id/${idPhim}`, config)
       .then((res) => {
         console.log(res.data);
         // this.setState({ dataPhim: res.data });
@@ -71,31 +71,7 @@ class DetailFilm extends Component {
         console.log(err);
       });
 
-    axios
-
-      .get(
-        `http://localhost:4000/client-page//get-films-id_actor/${idPhim}`,
-        config
-      )
-      .then((res) => {
-        console.log(res.data);
-        const actorsData = res.data.actors;
-
-        console.log(typeof actorsData);
-        // console.log(typeof actorsData.keys(actorsData));
-        // this.setState({ actors: res.data.actors});
-        // console.log(this.state.actors)
-        // actorsData.map(function(actor,index) {
-        //  return actorsData.actor
-        // })
-
-        //  console.log(res.data.actors);
-
-        // console.log(this.state.dataPhim);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    
   }
 
   handleCloseAlert = (event, reason) => {

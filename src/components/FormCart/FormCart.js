@@ -37,7 +37,7 @@ export default class FormCart extends Component {
     if (token) {
       axios
         .post(
-          "http://localhost:4000/client-page/purchase",
+          process.env.REACT_APP_BE_URL+"/client-page/purchase",
           {filmsList},
           {
             headers: { Authorization: `Bearer ${token}` },

@@ -67,7 +67,7 @@ const BuyCard = (props) => {
     };
 
     axios
-      .post("http://localhost:4000/cash", sendData, config)
+      .post(process.env.REACT_APP_BE_URL+"/cash", sendData, config)
       .then((res) => {
         console.log(res.data);
         setSuccess(res.data.message);

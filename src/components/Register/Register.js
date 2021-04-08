@@ -55,7 +55,7 @@ class Register extends Component {
     this.setState({ error: null, success: null });
 
     axios
-      .post("http://localhost:4000/signup", userData)
+      .post(process.env.REACT_APP_BE_URL+"/signup", userData)
       .then((res) => {
         //  console.log(res.data);
         const { name, email } = res.data;
@@ -67,7 +67,7 @@ class Register extends Component {
           success: `Bạn đã đăng ký thành công ${name} dưới email ${email}`,
         });
         alert(`bạn đă đăng ký thành công chào mừng ${name}`);
-        axios.post("http://localhost:4000/login", dataUser).then((res) => {
+        axios.post(process.env.REACT_APP_BE_URL+"/login", dataUser).then((res) => {
           // console.log(res.data);
           const { name, email, token } = res.data;
           // console.log(token);

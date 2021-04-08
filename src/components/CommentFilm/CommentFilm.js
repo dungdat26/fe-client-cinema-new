@@ -57,7 +57,7 @@ class CommentFilm extends Component {
     const { idPhim } = this.props.match.params;
     axios
       .get(
-        `http://localhost:4000/client-page/get-comments/${idPhim}`,
+        process.env.REACT_APP_BE_URL+`/client-page/get-comments/${idPhim}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

@@ -56,7 +56,7 @@ export default class Profile extends Component {
     console.log(id_user);
 
     axios
-      .put("http://localhost:4000/edit-my-profile/" + id_user, userdata)
+      .put(process.env.REACT_APP_BE_URL+"/edit-my-profile/" + id_user, userdata)
 
       .then((res) => {
         console.log(res.data);
