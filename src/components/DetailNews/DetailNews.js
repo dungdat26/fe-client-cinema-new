@@ -8,7 +8,7 @@ class DetailNews extends Component {
   componentDidMount() {
     const { id_news } = this.props.match.params;
     axios
-      .get(`http://localhost:4000/client-page/getdetail-News/${id_news}`)
+      .get(process.env.REACT_APP_BE_URL`/${id_news}`)
       .then((res) => {
         console.log(res.data);
         this.setState({ dataNews: res.data.news });
