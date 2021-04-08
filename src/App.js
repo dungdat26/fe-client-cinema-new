@@ -90,7 +90,7 @@ export default class App extends Component {
 
     if (token) {
       axios
-        .get("http://localhost:4000/auto-login", {
+        .get(process.env.REACT_APP_BE_URL+"/auto-login", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {

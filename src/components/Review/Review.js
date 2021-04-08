@@ -17,7 +17,7 @@ class Review extends Component {
   };
   componentDidMount() {
     axios
-      .get(process.env.REACT_APP_BE_URL+"/client-page/get-allNews")
+      .get(process.env.REACT_APP_BE_URL + "/client-page/get-allNews")
       .then((res) => {
         console.log(res.data);
         this.setState({ news: res.data.news }, () => {
