@@ -27,7 +27,7 @@ function ControlledTabs() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BE_URL+"/client-page/")
+      .get("https://skylight-cinema.herokuapp.com//client-page/")
       .then((res) => {
         console.log(res.data);
         setGetFilm(res.data.films);
